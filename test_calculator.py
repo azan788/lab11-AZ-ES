@@ -7,26 +7,26 @@ from calculator import *
 class TestCalculator(unittest.TestCase):
     ######### Partner 2
     def test_add(self): # 3 assertions
-        self.assertEquals(add(2, 2), 4)
-        self.assertEquals(add(-1, 0), -1)
-        self.assertEquals(add(10, -3), 7)
+        self.assertEqual(add(2, 2), 4)
+        self.assertEqual(add(-1, 0), -1)
+        self.assertEqual(add(10, -3), 7)
 
     def test_subtract(self): # 3 assertions
-        self.assertEquals(subtract(2, 2), 4)
-        self.assertEquals(subtract(-1, 0), -1)
-        self.assertEquals(subtract(10, -3), 7)
+        self.assertEqual(subtract(2, 2), 0)
+        self.assertEqual(subtract(-1, 0), -1)
+        self.assertEqual(subtract(10, -3), 13)
     # ##########################
 
     ######## Partner 1
     def test_multiply(self): # 3 assertions
-        self.assertEquals(mul(2, 3), 6)
-        self.assertEquals(mul(1, 3), 3)
-        self.assertEquals(mul(2, 0), 0)
+        self.assertEqual(mul(2, 3), 6)
+        self.assertEqual(mul(1, 3), 3)
+        self.assertEqual(mul(2, 0), 0)
 
     def test_divide(self): # 3 assertions
-        self.assertAlmostEqual(div(8, 4), 2)
-        self.assertAlmostEqual(div(1, 2), 0.5)
-        self.assertAlmostEqual(div(7, 4), 1.75)
+        self.assertAlmostEqual(div(4, 8), 2)
+        self.assertAlmostEqual(div(2, 1), 0.5)
+        self.assertAlmostEqual(div(4, 7), 1.75)
     # ##########################
 
     ######## Partner 2
@@ -34,14 +34,16 @@ class TestCalculator(unittest.TestCase):
     #     # call division function inside, example:
     #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
     #     #     div(0, 5)
-        self.assertRaises(ZeroDivisionError, div(0,5))
+        with self.assertRaises(ZeroDivisionError):
+            div(0, 5)
 
     def test_logarithm(self): # 3 assertions
         self.assertEqual(logarithm(2, 1), 0)
 
     def test_log_invalid_base(self): # 1 assertion
     #     # use same technique from test_divide_by_zero
-        self.assertRaises(ValueError, logarithm(10, 0))
+        with self.assertRaises(ValueError):
+            logarithm(10, 0)
     # ##########################
     
     ######## Partner 1

@@ -29,7 +29,8 @@ def mul(a, b):
     return a * b
 
 def div(a, b):
-    assert a != 0, ZeroDivisionError
+    if a == 0:
+        raise ZeroDivisionError
     return b / a
 
 def log(a, b):

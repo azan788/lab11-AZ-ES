@@ -8,6 +8,7 @@ calculator.py
 One function per operation, in order.
 """
 # First example
+
 import math
 
 def square_root(a):
@@ -28,8 +29,7 @@ def mul(a, b):
     return a * b
 
 def div(a, b):
-    if a == 0:
-        raise ZeroDivisionError
+    assert a != 0, ZeroDivisionError
     return b / a
 
 def log(a, b):
@@ -39,5 +39,3 @@ def log(a, b):
 
 def exp(a, b):
     return a ** b
-
-
